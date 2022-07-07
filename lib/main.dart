@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FilmesAPI',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        canvasColor: Colors.white,
+        primarySwatch: Colors.teal,
       ),
       home: const SearchAndResultsPage(),
     );
