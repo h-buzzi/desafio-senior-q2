@@ -28,15 +28,15 @@ class SearchAndResultsPage extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   margin: EdgeInsets.only(
-                      top: _deviceHeight * 0.1, bottom: _deviceHeight * 0.05),
+                      top: _deviceHeight * 0.16, bottom: _deviceHeight * 0.05),
                   child: const SearchWidget(),
                 ),
                 Container(
-                  height: _deviceHeight * 0.7,
+                  height: _deviceHeight * 0.5,
                   padding: EdgeInsets.symmetric(
                       vertical: _deviceHeight * 0.01,
                       horizontal: _deviceWidth * 0.01),
-                  margin: EdgeInsets.only(bottom: _deviceHeight * 0.05),
+                  margin: EdgeInsets.only(bottom: _deviceHeight * 0.19),
                   child: const ResultsOptionsWidget(),
                 ),
               ]),
