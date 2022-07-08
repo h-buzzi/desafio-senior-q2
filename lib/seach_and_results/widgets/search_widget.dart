@@ -28,11 +28,12 @@ class _SearchWidgetState extends State<SearchWidget> {
       child: Row(
         children: [
           Expanded(
+            flex: 8,
             child: TextFormField(
               textInputAction: TextInputAction.done,
               keyboardType: TextInputType.name,
               initialValue: _movieName,
-              enabled: Provider.of<MovieAPI>(context).isNotLoading,
+              enabled: !(Provider.of<MovieAPI>(context).isLoading),
               onSaved: (enteredMovieName) {
                 _movieName = enteredMovieName!;
               },
@@ -47,13 +48,20 @@ class _SearchWidgetState extends State<SearchWidget> {
               },
             ),
           ),
-          CircleAvatar(
-            backgroundColor: Colors.black,
-            child: IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () {
-                _submitData();
-              },
+          Expanded(flex: 1, child: SizedBox()),
+          Expanded(
+            flex: 2,
+            child: CircleAvatar(
+              backgroundColor: Theme.of(context).primaryColor,
+              child: IconButton(
+                icon: Icon(
+                  Icons.search,
+                  color: Theme.of(context).backgroundColor,
+                ),
+                onPressed: () {
+                  _submitData();
+                },
+              ),
             ),
           ),
         ],

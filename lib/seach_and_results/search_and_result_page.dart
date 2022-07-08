@@ -11,24 +11,32 @@ class SearchAndResultsPage extends StatelessWidget {
     double _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: null,
-      body: Container(
-        color: Theme.of(context).canvasColor,
-        padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.1),
-        child: Column(children: [
-          Container(
-            height: _deviceHeight * 0.15,
-            margin: EdgeInsets.symmetric(vertical: _deviceHeight * 0.05),
-            child: const SearchWidget(),
-          ),
-          Container(
-            height: _deviceHeight * 0.7,
-            padding: EdgeInsets.symmetric(
-                vertical: _deviceHeight * 0.01,
-                horizontal: _deviceWidth * 0.01),
-            margin: EdgeInsets.only(bottom: _deviceHeight * 0.05),
-            child: const ResultsOptionsWidget(),
-          ),
-        ]),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Theme.of(context).canvasColor,
+          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.1),
+          child: Column(children: [
+            Container(
+              decoration: BoxDecoration(
+                  color: Theme.of(context).backgroundColor,
+                  border: Border.all(
+                      color: Theme.of(context).shadowColor, width: 1)),
+              height: _deviceHeight * 0.1,
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              margin: EdgeInsets.only(
+                  top: _deviceHeight * 0.1, bottom: _deviceHeight * 0.05),
+              child: const SearchWidget(),
+            ),
+            Container(
+              height: _deviceHeight * 0.7,
+              padding: EdgeInsets.symmetric(
+                  vertical: _deviceHeight * 0.01,
+                  horizontal: _deviceWidth * 0.01),
+              margin: EdgeInsets.only(bottom: _deviceHeight * 0.05),
+              child: const ResultsOptionsWidget(),
+            ),
+          ]),
+        ),
       ),
     );
   }

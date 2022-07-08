@@ -38,6 +38,11 @@ class MovieAPI with ChangeNotifier {
   }
 
   Movies get movies => _moviesFromApiSearch;
-  bool get isNotLoading => _statusOfGetRequest != Status.loading ? true : false;
-  bool get movieListOK => _statusOfGetRequest == Status.ok ? true : false;
+  bool get isLoading => _statusOfGetRequest == Status.loading ? true : false;
+  bool get isMovieListOK => _statusOfGetRequest == Status.ok ? true : false;
+  bool get isInitialization =>
+      _statusOfGetRequest == Status.initiation ? true : false;
+  bool get isNotOK => _statusOfGetRequest == Status.notOk ? true : false;
+  bool get isInvalidJson =>
+      _statusOfGetRequest == Status.okButInvalidJson ? true : false;
 }

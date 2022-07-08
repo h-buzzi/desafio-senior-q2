@@ -20,9 +20,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'FilmesAPI',
         theme: ThemeData(
-          canvasColor: Colors.white,
-          primarySwatch: Colors.teal,
-        ),
+            canvasColor: Colors.blueGrey[50],
+            primarySwatch: Colors.teal,
+            backgroundColor: Colors.white,
+            shadowColor: Colors.grey[400]),
         home: const SearchAndResultsPage(),
       ),
     );
