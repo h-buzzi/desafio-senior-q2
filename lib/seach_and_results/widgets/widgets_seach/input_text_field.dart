@@ -20,6 +20,7 @@ class InputTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Theme.of(context).textTheme.bodyText1,
       textInputAction: TextInputAction.done,
       keyboardType: TextInputType.name,
       initialValue: _initialValue,
@@ -28,7 +29,7 @@ class InputTextField extends StatelessWidget {
         _onSaved(enteredMovieName!);
       },
       validator: (enteredValue) {
-        _inputValidator(enteredValue);
+        return _inputValidator(enteredValue);
       },
     );
   }

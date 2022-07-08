@@ -5,7 +5,9 @@ class InvalidJsonResultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-        "Parece que está entrada tem algo de errado no servidor\nPor favor reporte este erro para podermos corrigir!");
+    return Text(
+        "Parece que está entrada tem algo de errado no servidor\nPor favor reporte este erro para podermos corrigir!",
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline1);
   }
 }

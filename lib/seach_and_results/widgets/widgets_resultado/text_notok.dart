@@ -5,9 +5,10 @@ class NotOkResultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
+    return Text(
       'Ops! Parece que o servidor não conseguiu\n atender a esta requisição :c',
       textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.headline1,
     );
   }
 }

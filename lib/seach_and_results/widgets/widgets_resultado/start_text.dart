@@ -5,7 +5,8 @@ class StartupResultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-        "Insira o nome do filme desejado acima\nE comece a pesquisar!");
+    return Text("Insira o nome do filme desejado acima\nE comece a pesquisar!",
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline1);
   }
 }
