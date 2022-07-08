@@ -19,10 +19,21 @@ class FilmesAPI extends StatelessWidget {
       child: MaterialApp(
         title: 'FilmesAPI',
         theme: ThemeData(
-            canvasColor: Colors.blueGrey[50],
-            primarySwatch: Colors.teal,
-            backgroundColor: Colors.white,
-            shadowColor: Colors.grey[400]),
+          canvasColor: Colors.blueGrey[50],
+          primarySwatch: Colors.teal,
+          backgroundColor: Colors.white,
+          shadowColor: Colors.grey[400],
+          textTheme: TextTheme(
+              bodyText1: TextStyle(
+                color: Colors.grey[700],
+                fontSize: 18,
+                fontFamily: 'Montserrat',
+              ),
+              headline1: TextStyle(
+                  color: Colors.grey[500],
+                  fontSize: 26,
+                  fontFamily: 'Montserrat')),
+        ),
         home: const SearchAndResultsPage(),
       ),
     );
