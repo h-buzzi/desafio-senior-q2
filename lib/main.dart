@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:filmes_api/providers/movies_api_provider.dart';
 import 'package:filmes_api/seach_and_results/search_and_result_page.dart';
 import 'package:flutter/material.dart';

@@ -22,7 +22,7 @@ class SearchAndResultsPage extends StatelessWidget {
                   border: Border.all(
                       color: Theme.of(context).shadowColor, width: 1)),
               height: _deviceHeight * 0.1,
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               margin: EdgeInsets.only(
                   top: _deviceHeight * 0.1, bottom: _deviceHeight * 0.05),
               child: const SearchWidget(),

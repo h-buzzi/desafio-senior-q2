@@ -1,4 +1,6 @@
 import 'package:filmes_api/providers/movies_api_provider.dart';
+import 'package:filmes_api/seach_and_results/widgets/widgets_seach/input_text_field.dart';
+import 'package:filmes_api/seach_and_results/widgets/widgets_seach/search_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,9 +18,22 @@ class _SearchWidgetState extends State<SearchWidget> {
   void _submitData() {
     if (_form.currentState!.validate()) {
       _form.currentState!.save();
-      print(_movieName);
       Provider.of<MovieAPI>(context, listen: false).getMovieSearch(_movieName);
     }
+  }
+
+  String? _inputValidator(String? _enteredString) {
+    String defaultEmptyError = 'Este campo não pode estar vazio';
+    if (_enteredString == null) {
+      return defaultEmptyError;
+    } else if (_enteredString.isEmpty) {
+      return defaultEmptyError;
+    }
+    return null;
+  }
+
+  void _onSave(String _enteredMovieName) {
+    _movieName = _enteredMovieName;
   }
 
   @override
@@ -28,42 +43,17 @@ class _SearchWidgetState extends State<SearchWidget> {
       child: Row(
         children: [
           Expanded(
-            flex: 8,
-            child: TextFormField(
-              textInputAction: TextInputAction.done,
-              keyboardType: TextInputType.name,
-              initialValue: _movieName,
-              enabled: !(Provider.of<MovieAPI>(context).isLoading),
-              onSaved: (enteredMovieName) {
-                _movieName = enteredMovieName!;
-              },
-              validator: (enteredValue) {
-                if (enteredValue == null) {
-                  return 'Este campo não pode estar vazio';
-                }
-                if (enteredValue.isEmpty) {
-                  return 'Este campo não pode estar vazio';
-                }
-                return null;
-              },
-            ),
-          ),
-          Expanded(flex: 1, child: SizedBox()),
+              flex: 8,
+              child: InputTextField(
+                  onSaved: _onSave,
+                  inputValidator: _inputValidator,
+                  initialValue: _movieName)),
+          const Expanded(flex: 1, child: SizedBox()),
           Expanded(
-            flex: 2,
-            child: CircleAvatar(
-              backgroundColor: Theme.of(context).primaryColor,
-              child: IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: Theme.of(context).backgroundColor,
-                ),
-                onPressed: () {
-                  _submitData();
-                },
-              ),
-            ),
-          ),
+              flex: 2,
+              child: SearchButton(
+                onPress: _submitData,
+              )),
         ],
       ),
     );

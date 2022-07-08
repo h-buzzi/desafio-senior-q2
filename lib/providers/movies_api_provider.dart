@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
 import '../models/movies.dart';
 
 enum Status { ok, notOk, okButInvalidJson, initiation, loading }
@@ -14,9 +12,8 @@ class MovieAPI with ChangeNotifier {
   void getMovieSearch(String movieName) async {
     _statusOfGetRequest = Status.loading;
     notifyListeners();
-    final apiURL = "https://10.0.2.2:7131/filmes/$movieName";
     final apiResponse = await http.get(
-      Uri.parse(apiURL),
+      Uri.parse("https://10.0.2.2:7131/filmes/$movieName"),
     );
     if (apiResponse.statusCode == 200) {
       try {

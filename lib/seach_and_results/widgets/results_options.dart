@@ -1,4 +1,3 @@
-import 'package:filmes_api/models/movies.dart';
 import 'package:filmes_api/providers/movies_api_provider.dart';
 import 'package:filmes_api/seach_and_results/widgets/widgets_resultado/loading.dart';
 import 'package:filmes_api/seach_and_results/widgets/widgets_resultado/results_list.dart';
