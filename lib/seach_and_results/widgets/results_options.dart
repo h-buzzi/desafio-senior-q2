@@ -1,6 +1,9 @@
 import 'package:filmes_api/providers/movies_api_provider.dart';
 import 'package:filmes_api/seach_and_results/widgets/widgets_resultado/loading.dart';
 import 'package:filmes_api/seach_and_results/widgets/widgets_resultado/results_list.dart';
+import 'package:filmes_api/seach_and_results/widgets/widgets_resultado/start_text.dart';
+import 'package:filmes_api/seach_and_results/widgets/widgets_resultado/text_invalid_json.dart';
+import 'package:filmes_api/seach_and_results/widgets/widgets_resultado/text_notok.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,21 +14,15 @@ class ResultsOptionsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     MovieAPI _movieApi = Provider.of<MovieAPI>(context);
     if (_movieApi.isInitialization) {
-      return const Text(
-          "Insira o nome do filme desejado acima\nE comece a pesquisar!");
+      return const StartupResultWidget();
     } else if (_movieApi.isLoading) {
-      return LoadingIndicator();
+      return const LoadingIndicator();
     } else if (_movieApi.isMovieListOK) {
-      return ResultsList();
+      return const ResultsList();
     } else if (_movieApi.isNotOK) {
-      return const Text(
-        'Ops! Parece que o servidor não conseguiu\n atender a esta requisição :c',
-        textAlign: TextAlign.center,
-      );
-    } else if (_movieApi.isInvalidJson) {
-      return Text(
-          "Parece que está entrada tem algo de errado no servidor\nPor favor reporte este erro para podermos corrigir!");
+      return const NotOkResultWidget();
+    } else {
+      return const InvalidJsonResultWidget();
     }
-    return Text("Um erro inesperado ocorreu\nTente novamente mais tarde.");
   }
 }
