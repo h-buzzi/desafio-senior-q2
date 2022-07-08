@@ -9,9 +9,13 @@ class MovieAPI with ChangeNotifier {
   Status _statusOfGetRequest = Status.initiation;
   late Movies _moviesFromApiSearch;
 
-  void getMovieSearch(String movieName) async {
-    _statusOfGetRequest = Status.loading;
+  void _changeStatusAndNotify(Status _status) {
+    _statusOfGetRequest = _status;
     notifyListeners();
+  }
+
+  void getMovieSearch(String movieName) async {
+    _changeStatusAndNotify(Status.loading);
     final apiResponse = await http.get(
       Uri.parse("https://10.0.2.2:7131/filmes/$movieName"),
     );
@@ -19,14 +23,12 @@ class MovieAPI with ChangeNotifier {
       try {
         json.decode(apiResponse.body) as Map<String, dynamic>;
       } catch (_) {
-        _statusOfGetRequest = Status.okButInvalidJson;
-        notifyListeners();
+        _changeStatusAndNotify(Status.okButInvalidJson);
       }
       if (_statusOfGetRequest != Status.okButInvalidJson) {
         _moviesFromApiSearch =
             Movies(json.decode(apiResponse.body) as Map<String, dynamic>);
-        _statusOfGetRequest = Status.ok;
-        notifyListeners();
+        _changeStatusAndNotify(Status.ok);
       }
     } else {
       _statusOfGetRequest = Status.notOk;
