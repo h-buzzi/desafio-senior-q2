@@ -16,11 +16,17 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
   @override
   void initState() {
     _animationController =
-        AnimationController(duration: const Duration(seconds: 2), vsync: this);
+        AnimationController(duration: const Duration(seconds: 3), vsync: this);
     _colorTransition = _animationController
-        .drive(ColorTween(begin: Colors.white, end: Colors.teal));
+        .drive(ColorTween(begin: Colors.teal[100], end: Colors.teal[700]));
     _animationController.repeat();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
