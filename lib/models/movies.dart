@@ -1,10 +1,9 @@
 class Movies {
   late int _total;
-  late List<MoviesByYear> _moviesByYear;
+  final List<MoviesByYear> _moviesByYear = [];
 
   Movies(Map<String, dynamic> json) {
     _total = json['total'];
-    _moviesByYear = [];
     if (json['moviesByYear'] != null) {
       json['moviesByYear'].forEach((v) {
         _moviesByYear.add(MoviesByYear(v));
