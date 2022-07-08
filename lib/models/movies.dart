@@ -18,13 +18,13 @@ class Movies {
 
 class MoviesByYear {
   late int _year;
-  late int _movies;
+  late int _moviesCount;
 
   MoviesByYear(Map<String, dynamic> json) {
     _year = json['year'];
-    _movies = json['movies'];
+    _moviesCount = json['movies'];
   }
 
   int get year => _year;
-  int get movies => _movies;
+  int get moviesCount => _moviesCount;
 }

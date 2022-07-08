@@ -1,4 +1,4 @@
-import 'package:filmes_api/seach_and_results/widgets/results_list.dart';
+import 'package:filmes_api/seach_and_results/widgets/results_options.dart';
 import 'package:filmes_api/seach_and_results/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -22,8 +22,11 @@ class SearchAndResultsPage extends StatelessWidget {
           ),
           Container(
             height: _deviceHeight * 0.7,
+            padding: EdgeInsets.symmetric(
+                vertical: _deviceHeight * 0.01,
+                horizontal: _deviceWidth * 0.01),
             margin: EdgeInsets.only(bottom: _deviceHeight * 0.05),
-            child: const ResultsListWidget(),
+            child: const ResultsOptionsWidget(),
           ),
         ]),
       ),
