@@ -6,11 +6,11 @@ import 'package:provider/provider.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
-  runApp(const MyApp());
+  runApp(const FilmesAPI());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class FilmesAPI extends StatelessWidget {
+  const FilmesAPI({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
