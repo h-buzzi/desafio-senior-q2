@@ -1,3 +1,7 @@
+# Consumo de API Front-end em Flutter para Desafio de Programação Senior Mega
+
+Esta aplicação faz consumo da API desenvolvida em [https://github.com/h-buzzi/desafio-senior-q1](https://github.com/h-buzzi/desafio-senior-q1). Era obrigatório que tivesse pelo menos um campo de entrada de texto e mostrasse as informações provenientes do Backend, uma lista de resultados com o total de resultados encontrados.
+
 # Importante
 
 Abaixo você encontra algumas intruções de como estar com sua máquina do mesmo jeito que a minha, garantindo que você terá o mesmo ambiente para execução que o meu, e no qual o software foi desenvolvido.
